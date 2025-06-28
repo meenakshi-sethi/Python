@@ -11,7 +11,7 @@ due to issues in the code itself.
 
 Types of Errors
  
- - Syntax Errors (Compile-time errors): Occur when Python can't interpret code due due to incorrect syntax  
+ - Syntax Errors (Compile-time errors): Occur when Python can't interpret code due to incorrect syntax  
     syntax is incorrect. Also known as syntactical error, such as:
         Missing colons (:)
         Wrong spelling of keywords
