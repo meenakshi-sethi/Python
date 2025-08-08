@@ -41,17 +41,16 @@ def ordered_print(thread_id):
     global counter # uisng the global variable counter
     while True: # loop to check condition
         with condition: # keeping the critical section where
-            if counter > max_num: # keep waiting until its thread's turn to print
                 while counter <= max_num and (counter % num_threads != thread_id % num_threads): # this ensures round robin execution Thread 3 prints when counter % 3 == 0, Thread 1 prints when counter % 3 == 1 and thread 2 prints when counter % 3 == 2
                     condition.wait() # if above condition fails (false) then wait until notified by another thread
-                    if counter > max_num:
-                        condition.notify_all() # notify all threads to wake up and check the condition again
-                        break # exit the loop if counter exceeds max_num
+                if counter > max_num:
+                    condition.notify_all() # notify all threads to wake up and check the condition again
+                    break # exit the loop if counter exceeds max_num
 
-                    print(f"Thread {thread_id} prints --> {counter}") # print the current number
-                    counter += 1 # increment the counter
+                print(f"Thread {thread_id} prints --> {counter}") # print the current number
+                counter += 1 # increment the counter
 
-                    condition.notify_all() # notify all threads that counter has been changed and recheck their turn
+                condition.notify_all() # notify all threads that counter has been changed and recheck their turn
 
 # Creating threads
 t1 = threading.Thread(target=ordered_print, args=(1,)) # thread 1
