@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Book List </title>
+</head>
+<body>
+    <h1>Books</h1>
+    <ul>id = "book-list"</ul>
+
+    <script>    
+        fetch("http://127.0.0.1:5000/api/books")
+        .then(response => response.json())
+        .then(data => {
+            const list = document.getElementById("book-list");
+            data.forEach(book => {
+                let li = document.createElement("li");
+                list.appendChild(li)
+            });
+        })
+        .catch(error => console.error("Error fetching books:", error));
+    </script>
+</body>
+</html>
