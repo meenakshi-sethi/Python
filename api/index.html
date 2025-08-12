@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Book List </title>
+    <title>Book List2</title>
 </head>
 <body>
     <h1>Books</h1>
-    <ul>id = "book-list"</ul>
+    <ul id="book-list"></ul>
 
-    <script>    
-        fetch("http://127.0.0.1:5000/api/books")
-        .then(response => response.json())
+    <script>
+        fetch("http://127.0.0.1:5000/api/books/1")
+        .then(response => {
+            response.json()
+        })
         .then(data => {
             const list = document.getElementById("book-list");
-            data.forEach(book => {
+            list.innerHTML = ""; // Clear any existing content
+            // data.forEach(book => {
                 let li = document.createElement("li");
-                list.appendChild(li)
-            });
+                li.textContent = `${data} by ${data}`;
+                list.appendChild(li);
+            // }
+        // );
         })
         .catch(error => console.error("Error fetching books:", error));
     </script>

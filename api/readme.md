@@ -7,7 +7,7 @@ The Simple Books API is a minimal Flask-based backend that provides book informa
 
 ### 2. Goals & Objectives
 - Demonstrate how to build a simple API using Flask.
-- Provide GET endpoints for retrieving all books and a single book by ID.
+- Provide GET, POST, and PUT endpoints for retrieving, adding, and updating books.
 - Use static (hardcoded) data for simplicity.
 - Serve as a base for future enhancements (e.g., database integration, more endpoints).
 
@@ -18,15 +18,17 @@ The Simple Books API is a minimal Flask-based backend that provides book informa
 - **Static dataset:** 3 books stored in a Python list.
 - **Endpoints:**
   - `/` – Returns a friendly “API is running” message.
-  - `/api/books` – Returns a JSON array of all books.
-  - `/api/books/<id>` – Returns JSON details of a specific book.
+  - `/api/books` – GET: Returns a JSON array of all books.
+  - `/api/books/<id>` – GET: Returns JSON details of a specific book.
+  - `/api/books` – POST: Add a new book.
+  - `/api/books/<id>` – PUT: Update an existing book.
 - **JSON format:** All responses are in JSON.
 - **Error handling:** Returns a 404 and error message if a book is not found.
 
 #### Out of Scope
 - No database or persistent storage.
 - No authentication or authorization.
-- No POST, PUT, DELETE, or PATCH endpoints.
+- No DELETE or PATCH endpoints.
 - No frontend or documentation UI.
 
 ### 4. Functional Requirements
@@ -36,8 +38,10 @@ The Simple Books API is a minimal Flask-based backend that provides book informa
 | FR1  | The API must return a friendly message at the root endpoint `/`.            |
 | FR2  | The API must return all books as a JSON array at `/api/books`.              |
 | FR3  | The API must return a single book by ID at `/api/books/<id>`.               |
-| FR4  | The API must return a 404 error and JSON error message if book not found.   |
-| FR5  | The API must use only Python 3.x and Flask.                                 |
+| FR4  | The API must allow adding a new book via POST `/api/books`.                 |
+| FR5  | The API must allow updating an existing book via PUT `/api/books/<id>`.     |
+| FR6  | The API must return a 404 error and JSON error message if book not found.   |
+| FR7  | The API must use only Python 3.x and Flask.                                 |
 
 ### 5. Non-Functional Requirements
 
@@ -76,7 +80,7 @@ Response: "API is running. Try /api/books or api/books/2"
 GET /api/books
 Response:
 [
-  {"id": 1, "title": "Python Crash Course", "author": "Eric Matthes"},
+  {"id": 1, "title": "Python Crash Course1", "author": "Eric Matthes"},
   {"id": 2, "title": "Clean Code", "author": "Robert C. Martin"},
   {"id": 3, "title": "Fluent Python", "author": "Luciano Ramalho"}
 ]
@@ -89,6 +93,39 @@ Response:
 {"id": 2, "title": "Clean Code", "author": "Robert C. Martin"}
 ```
 
+### Add a New Book
+```
+POST /api/books
+Body:
+{
+  "title": "New Book Title",
+  "author": "Author Name"
+}
+Response:
+{
+  "id": 4,
+  "title": "New Book Title",
+  "author": "Author Name"
+}
+Status: 201
+```
+
+### Update an Existing Book
+```
+PUT /api/books/2
+Body:
+{
+  "title": "Updated Title",
+  "author": "Updated Author"
+}
+Response:
+{
+  "id": 2,
+  "title": "Updated Title",
+  "author": "Updated Author"
+}
+```
+
 ### Book Not Found
 ```
 GET /api/books/99
@@ -97,13 +134,13 @@ Response:
 Status: 404
 ```
 
----
+----
 
 ## How to Run
 
 1. Install dependencies:
    ```
-   pip install flask
+   pip install flask flask-cors
    ```
 2. Run the app:
    ```
@@ -111,4 +148,4 @@ Status: 404
    ```
 3. Access the API at [http://localhost:5000](http://localhost:5000)
 
----
+----
