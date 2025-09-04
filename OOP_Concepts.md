@@ -20,7 +20,6 @@ This demonstrates how ALL OOP concepts work together in a real-world payment pro
    - **Reporting to**: CEO directly
    - **Supporting**: 5 Customer support staff, 2 product managers, finance team
    - **Current System**: Built by previous developer who left 6 months ago (Link to legacy code:)
-   -   
 
 **Scenario**: You are the lead developer at "PayEasy", a growing fintech startup. The CEO comes to you with an urgent problem: 
 *"We started with just credit card processing, but now customers want debit cards, digital wallets, crypto payments and international forex cards. Our current system is a mess - every time we add a new payment method, we have to rewrite half the codebase. We are losing customers to competitors who can integrate new payment methods in days, not months. We need a scalable, maintainable solution that can grow with use."*
