@@ -1,4 +1,4 @@
-COMPLETE PAYMENT SYSTEM - ALL OOP CONCEPTS EXPLAINED LINE BY LINE
+# Payment System: Business Case & OOP Implementation
 
 This demonstrates how ALL OOP concepts work together in a real-world payment processing system:
 - Classes and Objects: Foundation structure for payment entities
@@ -9,11 +9,25 @@ This demonstrates how ALL OOP concepts work together in a real-world payment pro
 - Composition: Objects containing other objects for complex relationships
 - Aggregation: Objects using other objects without owning them
 
-BUSINESS PROBLEM SOLVED:
-A fintech company needs a payment processing system that can handle multiple payment methods
-(credit cards, debit cards, digital wallets, international cards, cryptocurrencies) while
-ensuring security, maintainability, and easy extensibility for future payment types.
+## 🏢 Business Problem & Use Case
 
+### Background: Fintech Startup Challenge
+
+**Your Role**: Sr Developer + Architect + QA
+ - **Company Context:**
+   - **PayEasy**: 25 person fintech startup
+   - **Your tile**: Senior Software Engineer (but you are the entire tech team)
+   - **Reporting to**: CEO directly
+   - **Supporting**: 5 Customer support staff, 2 product managers, finance team
+   - **Current System**: Built by previous developer who left 6 months ago (Link to legacy code:)
+   -   
+
+**Scenario**: You are the lead developer at "PayEasy", a growing fintech startup. The CEO comes to you with an urgent problem: 
+*"We started with just credit card processing, but now customers want debit cards, digital wallets, crypto payments and international forex cards. Our current system is a mess - every time we add a new payment method, we have to rewrite half the codebase. We are losing customers to competitors who can integrate new payment methods in days, not months. We need a scalable, maintainable solution that can grow with use."*
+
+### Business Requirements
+1. **Multiple Payment Methods**: Support credit cards, debit cards, digital wallets, forex cards and cryptocurriences
+2. **Easy Extensibility**: Add new payment types without breaking existing code
 
 
 
