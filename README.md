@@ -9,3 +9,8 @@
 7. Multi-threading
 8. Multi-processing
 9. Unit test
+10. Flask
+11. Numpy
+12. Pandas
+13. Matplotlib
+14. Seaborn
